@@ -6,17 +6,16 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *ahead = NULL, *node = NULL, *print = NULL;; 
+    listint_t *ahead = NULL, *node = NULL, *print = NULL;
+    int it = 0;
     
     print = *list;
     ahead = *list;
 
     while(ahead)
     {
-        printf("first while\n");
         while ((ahead->prev) && (ahead->n < ahead->prev->n))
         {
-            printf("if\n");
             node = ahead->prev;
 
             if (ahead->prev->prev)
@@ -24,13 +23,14 @@ void insertion_sort_list(listint_t **list)
             ahead->prev = ahead->prev->prev;
             node->next = ahead->next;
             node->prev = ahead;
-            ahead->next->prev = node;
+            if (ahead->next)
+                ahead->next->prev = node;
             ahead->next = node;
-            print_list(print);
-
-            *list = ahead;
+            if (ahead->prev == NULL)
+                *list = ahead;
+            print_list(*list);
         }
         ahead = ahead->next;
-        printf("FIN DEL WHILEi\n");
+        it++;
     }
 }
