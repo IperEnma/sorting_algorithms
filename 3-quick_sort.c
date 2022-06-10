@@ -3,17 +3,18 @@
  *
  *
  */
-void quick_sort_suplement(int *array, size_t first, size_t last)
+void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
 {
-    size_t i = first, j = last, pivot = 0;
+    size_t i = first, j = last, pivot = 0, size = 0;
     int temp = 0;
 
-    pivot = (last / 2);
-    while(i != pivot && j != pivot)
-    {
+   size = last - first;
+   pivot = size / 2;
+   printf("%ld\n", pivot);
+   while(i != j && i < j)
+   {
         if (array[i] > array[pivot] && array[j] < array[pivot])
         {
-            printf("primer cambio\n");
             temp = array[i];
             array[i] = array[j];
             array[j] = temp;
@@ -24,12 +25,32 @@ void quick_sort_suplement(int *array, size_t first, size_t last)
             i++;
         if (array[j] > array[pivot])
             j--;
-        printf("valor de i: %ld\n", i);
-        printf("valor de j: %ld\n", j);
-        printf("valor de pivot: %ld\n", pivot);
+	if (j == pivot)
+	{
+		temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+		i = first;
+		j = last;
+	}
+	if (i == pivot)
+        {
+                temp = array[j];
+                array[j] = array[i];
+                array[i] = temp;
+		i = first;
+		j = last;
+        }
+	print_array(array, len);
+	if (i + 1 == pivot && j - 1 == pivot)
+		break;
     }
-    quick_sort_suplement(array, pivot + 1, last);
-    quick_sort_suplement(array, first, pivot - 1);
+	
+    if ((array[i] > array[pivot] && array[j] > array[pivot]) || (array[i] < array[pivot] && array[j] < array[pivot]))
+    {
+    	quick_sort_suplement(array, pivot + 1, last, len);
+    	quick_sort_suplement(array, first, pivot, len);
+    }
 }
 /**
  *
@@ -37,5 +58,5 @@ void quick_sort_suplement(int *array, size_t first, size_t last)
  */
 void quick_sort(int *array, size_t size)
 {
-    quick_sort_suplement(array, 0, size - 1);
+    quick_sort_suplement(array, 0, size - 1, size);
 }
