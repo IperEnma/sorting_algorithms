@@ -6,9 +6,8 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-    listint_t *ahead = NULL, *node = NULL, *print = NULL;
+    listint_t *ahead = NULL, *node = NULL;
     
-    print = *list;
     ahead = *list;
 
     while(ahead)
