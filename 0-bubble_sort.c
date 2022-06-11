@@ -1,13 +1,15 @@
 #include "sort.h"
 /**
- *
- *
+ * bubble_sort - method sorting bubble
+ * @array: array
+ * @size: size array
+ * Return: void
  */
 void bubble_sort(int *array, size_t size)
 {
     size_t aux = 0, i = 0;
     int flag = 1;
-    
+
     while (flag)
     {
         flag = 0;
@@ -19,7 +21,7 @@ void bubble_sort(int *array, size_t size)
                 aux = array[i];
                 array[i] = array[i + 1];
                 array[i + 1] = aux;
-                print_array(array, size);
+               print_array(array, size);
             }
         }
     }
