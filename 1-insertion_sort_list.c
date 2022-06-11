@@ -1,8 +1,8 @@
 #include "sort.h"
 /**
- *
- *
- *
+ * insertion_sort_list - sorting linkend list
+ * @list: head list
+ * Return: void
  */
 void insertion_sort_list(listint_t **list)
 {
