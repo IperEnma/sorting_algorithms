@@ -7,7 +7,6 @@
 void insertion_sort_list(listint_t **list)
 {
     listint_t *ahead = NULL, *node = NULL, *print = NULL;
-    int it = 0;
     
     print = *list;
     ahead = *list;
@@ -31,6 +30,5 @@ void insertion_sort_list(listint_t **list)
             print_list(*list);
         }
         ahead = ahead->next;
-        it++;
     }
 }
