@@ -25,9 +25,9 @@ void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
 
 	while (left <= right)
 	{
-		while (array[left] < array[pivot] && left < first)
+		while (array[left] < array[pivot] && left < last)
 			left++;
-		while (array[right] > array[pivot] && right > last)
+		while (array[right] > array[pivot] && right > first)
 			right--;
 
 		if (left <= right)
