@@ -1,5 +1,19 @@
 #include "sort.h"
 /**
+ * swap - swapping array
+ * @swap_element1: element array
+ * @swap_element2: element array
+ * Return: void
+ */
+void swap(int *swap_element1, int *swap_element2)
+{
+	int temp = 0;
+	
+	temp = *swap_element1;
+	*swap_element1 = *swap_element2;
+	*swap_element2 = temp;
+}
+/**
  * quick_sort_suplement - suplement recursive function
  * @array: array
  * @first: first element sorting
@@ -10,7 +24,6 @@
 void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
 {
 	size_t left = 0, right = 0, pivot = 0;
-	int temp = 0;
 
 	left = first;
 	right = last;
@@ -32,14 +45,11 @@ void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
 
 		if (left <= right)
 		{
-			/*printf("swap = %d y %d\n", array[left], array[right]);*/
-			temp = array[left];
-			array[left] = array[right];
-			array[right] = temp;
-			left++;
-			right--;
-			if ((left - 1) != (right + 1))
+			swap(&array[left], &array[right]);
+			if (left != right)
 				print_array(array, len);
+			right--;
+			left++;
 		}
 	}
 	if (first < right)
