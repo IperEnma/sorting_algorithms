@@ -41,7 +41,7 @@ void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
 		pivot = last;
 		while (fast < pivot)
 		{
-			if (array[fast] < array[pivot])
+			if (array[fast] <= array[pivot])
 			{
 				flag = 1;
 				swap(array, &array[fast], &array[slow], len);
