@@ -25,6 +25,11 @@ void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
 {
 	size_t left = 0, right = 0, pivot = 0;
 
+	if ((last) - first <= 0)
+		return;
+	if (last == 1 && array[0] < array[last])
+		return;
+
 	left = first;
 	right = last;
 	pivot = last;
