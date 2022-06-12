@@ -22,4 +22,5 @@ void quick_sort(int *array, size_t size);
 void quick_sort_suplement(int *array, size_t first, size_t last, size_t len);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
+void print_list_rev(const listint_t *list);
 #endif
