@@ -1,17 +1,19 @@
 #include "sort.h"
+#include <string.h>
 /**
  * swap - swapping array
  * @swap_element1: element array
  * @swap_element2: element array
  * Return: void
  */
-void swap(int *swap_element1, int *swap_element2)
+void swap(int *array, int *swap_element1, int *swap_element2, size_t len)
 {
 	int temp = 0;
 	
 	temp = *swap_element1;
 	*swap_element1 = *swap_element2;
 	*swap_element2 = temp;
+    print_array(array, len);
 }
 /**
  * quick_sort_suplement - suplement recursive function
@@ -23,44 +25,29 @@ void swap(int *swap_element1, int *swap_element2)
  */
 void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
 {
-	size_t left = 0, right = 0, pivot = 0;
+	size_t slow = 0, fast = 0, pivot;
 
 	if ((last) - first <= 0)
 		return;
 	if (last == 1 && array[0] < array[last])
 		return;
 
-	left = first;
-	right = last;
+	slow = first; 
+    fast = first;
 	pivot = last;
-
-	/*
-	 * printf("\n***********\nENTRO A FUNCION Y RECIBO LISTA\n************\n");
-	 * for (i = limit_left; i <= limit_right; i++)
-	 * printf("%d, ",  array[i]);
-	 * printf("\n************\n\n");
-	 */
-
-	while (left < right)
+	while (fast <= pivot)
 	{
-		while (array[left] < array[pivot])
-			left++;
-		while (array[right] > array[pivot])
-			right--;
-
-		if (left <= right)
+		if (array[fast] <= array[pivot])
 		{
-			swap(&array[left], &array[right]);
-			if (left != right)
-				print_array(array, len);
-			right--;
-			left++;
+			swap(array, &array[slow], &array[fast], len);
+			slow++;
 		}
+		fast++;
 	}
-	if (first < right)
-		quick_sort_suplement(array, first, right, len);
-	if (first < right)
-		quick_sort_suplement(array, left, last, len);
+	if (last - first > 0)
+		quick_sort_suplement(array, slow + 1, last, len);
+	if (last - first > 0)
+		quick_sort_suplement(array, first, slow, len);
 }
 /**
  * quick_sort - sorting quick init
