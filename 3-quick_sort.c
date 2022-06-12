@@ -41,11 +41,11 @@ void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
 	 * printf("\n************\n\n");
 	 */
 
-	while (left <= right)
+	while (left < right)
 	{
-		while (array[left] < array[pivot] && left < last)
+		while (array[left] < array[pivot])
 			left++;
-		while (array[right] > array[pivot] && right > first)
+		while (array[right] > array[pivot])
 			right--;
 
 		if (left <= right)
@@ -59,7 +59,7 @@ void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
 	}
 	if (first < right)
 		quick_sort_suplement(array, first, right, len);
-	if (last > left)
+	if (first < right)
 		quick_sort_suplement(array, left, last, len);
 }
 /**
