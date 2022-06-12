@@ -10,13 +10,11 @@ void swap(int *array, int *swap_element1, int *swap_element2, size_t len)
 {
 	int temp = 0;
 	
-	if (*swap_element1 != *swap_element2)
-	{
-		temp = *swap_element1;
-		*swap_element1 = *swap_element2;
-		*swap_element2 = temp;
+	temp = *swap_element1;
+	*swap_element1 = *swap_element2;
+	*swap_element2 = temp;
+	if (*swap_element1 != temp)
 		print_array(array, len);
-	}
 }
 /**
  * quick_sort_suplement - suplement recursive function
