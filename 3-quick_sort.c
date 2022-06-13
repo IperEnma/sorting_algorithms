@@ -32,11 +32,6 @@ void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
 
 	if (first < last)
 	{
-		if ((last) - first <= 0)
-			return;
-		if (last == 1 && array[0] < array[last])
-			return;
-
 		fast = slow = first;
 		pivot = last;
 		while (fast < pivot)
@@ -71,6 +66,7 @@ void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
  */
 void quick_sort(int *array, size_t size)
 {
-	if (array && size > 1)
-		quick_sort_suplement(array, 0, size - 1, size);
+	if (!array || size < 2)
+		return;
+	quick_sort_suplement(array, 0, size - 1, size);
 }

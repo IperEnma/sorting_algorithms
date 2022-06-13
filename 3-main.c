@@ -17,5 +17,6 @@ int main(void)
     quick_sort(array, n);
     printf("\n");
     print_array(array, n);
+    quick_sort(NULL, n);
     return (0);
 }
