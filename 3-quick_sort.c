@@ -48,13 +48,13 @@ void quick_sort_suplement(int *array, size_t first, size_t last, size_t len)
 
 		if (flag == 1)
 		{
-			quick_sort_suplement(array, slow + 1, last, len);
 			quick_sort_suplement(array, first, slow - 1, len);
+			quick_sort_suplement(array, slow + 1, last, len);
 		}
 		else
 		{
-			quick_sort_suplement(array, slow, last, len);
 			quick_sort_suplement(array, first, slow, len);
+			quick_sort_suplement(array, slow, last, len);
 		}
 	}
 }
